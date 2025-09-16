@@ -1,0 +1,12 @@
+# To run the tutorial case!
+- In serial
+blockMesh
+setFields
+porousCapillaryFoam
+
+- In serial
+blockMesh
+setFields
+decomposePar
+mpirun -np 'numCore' porousCapillaryFoam -parellel
+reconstructPar -latestTime
