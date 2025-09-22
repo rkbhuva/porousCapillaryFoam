@@ -39,7 +39,7 @@ const volScalarField& Kr2 = relPermModel->Kr2();
         );
 
         U1Eqn += alpha1 * fvm::Sp(alpha1 * mu1 * D / max(Kr1, SMALL), U1);
-        U1Eqn += (capPressureModel->wettingPhase() == 1 ? -alpha1 * gradPc : alpha2 * gradPc);
+        U1Eqn += (capPressureModel->wettingPhase() == 1 ? -alpha1 * gradPc : alpha1 * gradPc);
 
         U1Eqn.relax();
         fvOptions.constrain(U1Eqn);
