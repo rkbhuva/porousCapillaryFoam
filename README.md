@@ -19,5 +19,5 @@ An extended OpenFOAM solver based on `twoPhaseEulerFoam` for simulating **capill
   - Isothermal formulation (energy equation disabled)
 
 - This framework allows investigation of capillary-induced transport phenomena in multiphase porous media and provides a basis for further coupling with electrochemical or thermal models.
-- Developed by **Ridham Bhuva** at IET-4 Forschungszentrum Jülich and Otto-von-Guericke Universität, Magdeburg.
+- Developed by **Ridham Bhuva** as a part of Master Thesis work at IET-4 Forschungszentrum Jülich and Otto-von-Guericke Universität, Magdeburg.
 - Contact: ridham.bhuva@ovgu.de / r.bhuva@fz-juelich.de
