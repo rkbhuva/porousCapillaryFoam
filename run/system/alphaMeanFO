@@ -1,0 +1,11 @@
+alphaMeanFO
+{
+    type            volFieldValue;
+    functionObjectLibs ("libfieldFunctionObjects.so");
+    fields          (alpha.electrolyte);
+    operation       average;
+    writeControl    timeStep;
+    writeInterval   1;
+    writeFields     no;
+}
+
