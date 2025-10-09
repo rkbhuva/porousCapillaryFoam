@@ -117,7 +117,7 @@ EOL
 
     # Reconstruct domain
     echo "Reconstructing domain..."
-    eval "reconstructPar $LOG_CMD"
+    eval "reconstructPar -latestTime $LOG_CMD"
 fi
 
 echo "Simulation completed successfully!"
