@@ -1,10 +1,9 @@
 # porousCapillaryFoam  
 
 An extended OpenFOAM solver based on `twoPhaseEulerFoam` for simulating **capillary-driven multiphase transport in porous media** under isothermal conditions
--© 2025 Ridham Bhuva. This code is part of unpublished master's thesis research. All rights reserved. No part of this repository may be copied, distributed, or used without explicit permission.
-
 
 - Developed and Tested with OpenFOAM v2306
+- © 2025 Ridham Bhuva. This code is part of unpublished master's thesis research. All rights reserved. No part of this repository may be copied, distributed, or used without explicit permission.
 ## Features  
 - **Capillary pressure models**  
   - Brooks–Corey  
