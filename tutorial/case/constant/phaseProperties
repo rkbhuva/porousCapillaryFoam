@@ -1,0 +1,153 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version: v2306                                  |
+|   \\  /    A nd           | Website: www.openfoam.com                       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      phaseProperties;
+}
+
+phases              (electrolyte air);
+
+air
+{
+    diameterModel   constant;
+    constantCoeffs
+    {
+        d           1e-4;
+    }
+
+    residualAlpha   1e-6;
+}
+
+electrolyte
+{
+    diameterModel   constant;
+    constantCoeffs
+    {
+        d           1e-4;
+    }
+
+    residualAlpha   1e-6;
+}
+
+blending
+{
+    default
+    {
+        type            linear;
+        maxFullyDispersedAlpha.air 0.3;
+        maxPartlyDispersedAlpha.air 0.5;
+        maxFullyDispersedAlpha.electrolyte 0.3; // Changed from water
+        maxPartlyDispersedAlpha.electrolyte 0.5; // Changed from water
+    }
+}
+
+sigma
+(
+    (air and electrolyte)   0.08459
+);
+
+aspectRatio
+(
+    (air in electrolyte)
+    {
+        type            constant;
+        E0              1.0;
+    }
+
+    (electrolyte in air)
+    {
+        type            constant;
+        E0              1.0;
+    }
+);
+
+drag
+(
+    (air in electrolyte)
+    {
+        type            SchillerNaumann;
+        residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }
+
+    (electrolyte in air)
+    {
+        type            SchillerNaumann;
+        residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }
+
+    (air and electrolyte)
+    {
+        type            segregated;
+        residualAlpha   1e-6;
+        m               0.5;
+        n               8;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }
+);
+
+virtualMass
+(
+    (air in electrolyte)
+    {
+        type            constantCoefficient;
+        Cvm             0.5;
+    }
+
+    (electrolyte in air)
+    {
+        type            constantCoefficient;
+        Cvm             0.5;
+    }
+);
+
+heatTransfer
+(
+    /*(air in electrolyte)
+    {
+        type            RanzMarshall;
+        residualAlpha   1e-4;
+    }
+
+    (electrolyte in air) 
+    {
+        type            RanzMarshall;
+        residualAlpha   1e-4;
+    }*/
+);
+
+lift
+(
+);
+
+wallLubrication
+(
+);
+
+turbulentDispersion
+(
+);
+
+pMin            10000;
+
+
+// ************************************************************************* //
