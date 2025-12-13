@@ -193,7 +193,7 @@ int main(int argc, char *argv[])
 
             // Both Phases may have small residual velocities in regions where it has vanished (alpha ~ 0). 
             // Multiplying by pos(alpha2 - alphaMin) clamps these non-physical velocities to zero,
-            // improving numerical stability, speed and preventing ghost flow in the non-wetting phase.
+            // improving numerical stability, speed and preventing ghost flow.
             U1 *= pos(alpha1 - 1e-6);
             U2 *= pos(alpha2 - 1e-6);
         }
@@ -215,4 +215,5 @@ int main(int argc, char *argv[])
 
 
 // ************************************************************************* //
+
 
