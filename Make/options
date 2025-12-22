@@ -1,8 +1,8 @@
 phaseSystem = $(LIB_SRC)/phaseSystemModels/twoPhaseEuler
 
 EXE_INC = \
-    -IcapillaryPressureModel \
-    -IrelativePermeabilityModel \
+    -IcapillaryPressureModels \
+    -IrelativePermeabilityModels \
     -I${phaseSystem}/phaseCompressibleTurbulenceModels/lnInclude \
     -I${phaseSystem}/twoPhaseSystem/lnInclude \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
