@@ -1,11 +1,11 @@
-capillaryPressureModel/pcBrooksCorey.C
-capillaryPressureModel/pcVanGenuchten.C
-capillaryPressureModel/pcLeverett.C
-capillaryPressureModel/capillaryPressureModelBase.C
-relativePermeabilityModel/krBrooksCorey.C
-relativePermeabilityModel/krVanGenuchten.C
-relativePermeabilityModel/krPowerLaw.C
-relativePermeabilityModel/relativePermeabilityModelBase.C
+capillaryPressureModels/pcBrooksCorey.C
+capillaryPressureModels/pcVanGenuchten.C
+capillaryPressureModels/pcLeverett.C
+capillaryPressureModels/capillaryPressureModelBase.C
+relativePermeabilityModels/krBrooksCorey.C
+relativePermeabilityModels/krVanGenuchten.C
+relativePermeabilityModels/krPowerLaw.C
+relativePermeabilityModels/relativePermeabilityModelBase.C
 porousCapillaryFoam.C
 
 EXE = $(FOAM_USER_APPBIN)/porousCapillaryFoam
