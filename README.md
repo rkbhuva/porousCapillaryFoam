@@ -8,12 +8,12 @@ An extended OpenFOAM solver based on `twoPhaseEulerFoam` for simulating **capill
 - **Capillary pressure models**  
   - Brooks–Corey  
   - van Genuchten  
-  - Leverett function  
+  - Leverett J-function  
 
 - **Relative permeability models**  
   - Brooks–Corey  
   - van Genuchten
-  - Power law
+  - Corey
 
 - **Physics extensions**  
   - Capillary pressure source term  
