@@ -24,4 +24,4 @@ An extended OpenFOAM solver based on `twoPhaseEulerFoam` for simulating **capill
 
 ## Developer Info
 - Developed by **Ridham Bhuva** as a part of Master Thesis work at IET-4 Forschungszentrum Jülich and Otto-von-Guericke Universität, Magdeburg.
-- Contact: ridham.bhuva@ovgu.de / r.bhuva@fz-juelich.de
+- Contact: ridham.bhuva@ovgu.de
