@@ -4,7 +4,7 @@ capillaryPressureModels/pcLeverett.C
 capillaryPressureModels/capillaryPressureModelBase.C
 relativePermeabilityModels/krBrooksCorey.C
 relativePermeabilityModels/krVanGenuchten.C
-relativePermeabilityModels/krPowerLaw.C
+relativePermeabilityModels/krCorey.C
 relativePermeabilityModels/relativePermeabilityModelBase.C
 porousCapillaryFoam.C
 
