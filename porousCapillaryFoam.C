@@ -64,12 +64,12 @@ int main(int argc, char *argv[])
     #include "createFields.H"
     #include "createFieldRefs.H"
 
-    Info<< "Reading capillaryTransportProperties\n" << endl;
+    Info<< "Reading porousProperties\n" << endl;
     IOdictionary capillaryTransportModelDict
     (
         IOobject
         (
-            "capillaryTransportProperties",
+            "porousProperties",
             runTime.constant(),
             mesh,
             IOobject::MUST_READ_IF_MODIFIED,
@@ -139,13 +139,13 @@ int main(int argc, char *argv[])
             if (!capPressureModel.valid())
             {
                 FatalErrorInFunction
-                    << "capPressureModel is not valid. Check 'capillaryPressureModel' in constant/capillaryTransportProperties."
+                    << "capPressureModel is not valid. Check 'capillaryPressureModel' in constant/porousProperties."
                     << abort(FatalError);
             }
             if (!relPermModel.valid())
             {
                 FatalErrorInFunction
-                    << "relPermModel is not valid. Check 'relativePermeabilityModel' in constant/capillaryTransportProperties."
+                    << "relPermModel is not valid. Check 'relativePermeabilityModel' in constant/porousProperties."
                     << abort(FatalError);
             }
 
@@ -154,9 +154,9 @@ int main(int argc, char *argv[])
 
             // Diagnostics
             Info << "Capillary Pressure - min: "
-                 << min(capPressureModel->pCapillary()).value()
-                 << ", max: " << max(capPressureModel->pCapillary()).value()
-                 << ", mean: " << capPressureModel->pCapillary().average().value()
+                 << min(capPressureModel->pc()).value()
+                 << ", max: " << max(capPressureModel->pc()).value()
+                 << ", mean: " << capPressureModel->pc().average().value()
                  << endl;
 
             Info << "Relative Permeability Phase1 (Kr1) - min: "
@@ -191,8 +191,8 @@ int main(int argc, char *argv[])
                 fluid.correctTurbulence();
             }
 
-            // Both Phases may have small residual velocities in regions where it has vanished (alpha ~ 0). 
-            // Multiplying by pos(alpha - alphaMin) clamps these non-physical velocities to zero,
+	          // Both Phases may have small residual velocities in regions where it has vanished (alpha ~ 0).
+            // Multiplying by pos(alphai - 1e-6) clamps these non-physical velocities to zero,
             // improving numerical stability, speed and preventing ghost flow.
             U1 *= pos(alpha1 - 1e-6);
             U2 *= pos(alpha2 - 1e-6);
@@ -215,5 +215,3 @@ int main(int argc, char *argv[])
 
 
 // ************************************************************************* //
-
-
