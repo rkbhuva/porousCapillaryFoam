@@ -1,0 +1,44 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      porousProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+capillaryPressureModel
+{
+    enabled           true;
+    wettingPhase      1;              // 1 = Electrolyte, 2 = Air
+    maxPc             211485;
+
+    // --- Brooks-Corey Model ---
+    type              pcBrooksCorey;
+    Sr                0.0;
+    lambda            2.783; 
+    pe                13519; 
+}
+
+relativePermeabilityModel
+{
+    enabled           true;
+    wettingPhase      1;              // 1 = Electrolyte, 2 = Air
+    D                 2.09e12;
+
+    // --- Brooks-Corey Model ---
+    type              krBrooksCorey;
+    Sr                0.0;
+    lambda            2.783;     
+}
+// ************************************************************************* //
+

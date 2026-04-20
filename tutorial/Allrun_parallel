@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rm -rf 0 processor* pro*
+
+cp -r 0.orig 0
+
+blockMesh > log.blockMesh
+decomposePar > log.decomposePar
+
+mpirun -np 10 porousCapillaryFoam -parallel > log.porousCapillaryFoam
+
+reconstructPar -time 100:15000 > log.reconstructPar
+
+rm -rf processor* pro*
